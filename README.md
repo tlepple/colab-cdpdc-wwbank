@@ -17,12 +17,6 @@ docker pull centos:7
 # Create a docker volume to persist data
 docker volume create horizon-dc-wwbank-vol1
 
-# inspect volume
-docker volume inspect horizon-dc-wwbank-vol1
-
-# list volumes
-docker volume ls
-
 # Create the docker container
 docker run -it \
   --name horizon_dc_wwbank \
@@ -52,29 +46,12 @@ vi ./provider/aws/demo.properties
 OWNER_TAG=<your userid here>
 AWS_RGION=<your region here>
 
-# set the docker bind mount properties
-BIND_MNT_SOURCE="/Users/<replace with your username>/Documents/aws_scripts/docker_bind_mnt"
-BIND_MNT_TARGET="/macmnt"
 
 # I will fix this soon
 AMI_ID=<centos ami for your region>
 
-#If you already have a security group and subnet ID set:
-
-setup_prereqs=false and update the values of security group and subnet ID to yours from your VPC.
 ```
 
-### Azure File:
-```
-vi ./provider/azure/demo.properties
-
-OWNER_TAG=<your userid here>
-AZURE_REGION=<your Azure region>
-
-# set the docker bind mount properties
-BIND_MNT_SOURCE="/Users/<replace with your username>/Documents/aws_scripts/docker_bind_mnt"
-BIND_MNT_TARGET="/macmnt"
-```
 ---
 
 ##  Build your instance:
@@ -90,14 +67,7 @@ cd /app/colab-cdpdc-wwbank
 . bin/setup.sh aws
 ```
 
-###  Run these commands if building in Azure
-```
-export AZ_USER=<Azure username>
-export AZ_PWD=<Azure password>
 
-cd /app/jumpboxMaster
-. bin/setup.sh azure
-```
 ---
 ---
 
@@ -110,25 +80,11 @@ cd /app/colab-cdpdc-wwbank
 
 ```
 
-## Terminate just the ec2 instance:
-
-```
-cd /app/colab-cdpdc-wwbank
-. provider/aws/terminate_ec2.sh
-
-```
 
 ---
 ---
 
-##  Terminate Azure items
-```
-cd /app/colab-cdpdc-wwbank
-. provider/azure/terminate_everything.sh
-```
 
----
----
 
 ##  Useful docker command reference:
 
@@ -136,6 +92,12 @@ cd /app/colab-cdpdc-wwbank
 ```
 # list all containers on host
 docker ps -a
+
+# inspect volume
+docker volume inspect horizon-dc-wwbank-vol1
+
+# list volumes
+docker volume ls
 
 #  start an existing container
 docker start horizon_dc_wwbank
@@ -190,8 +152,3 @@ cd /app/colab-cdpdc-wwbank
 . /provider/aws/add_current_ip_access.sh
 ```
 
-### Add IP to Azure instance:
-```
-cd /app/colab-cdpdc-wwbank
-. /provider/azure/add_current_ip_access.sh
-```

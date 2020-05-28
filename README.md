@@ -28,7 +28,7 @@ sudo ln -s /Users/$USER/Documents/aws_stuff/docker_stuff ~/pier121
 docker run -it \
   --name horizon_dc_wwbank \
   --mount source=horizon-dc-wwbank-vol1,target=/app \
-  --mount type=bind,source=/Users/$USER/Documents/aws_stuff/docker_stuff,target=~/pier121 \
+  --mount type=bind,source=/Users/$USER/Documents/aws_stuff/docker_stuff,target=/root/pier121 \
   centos:7 bash 
 ```
 

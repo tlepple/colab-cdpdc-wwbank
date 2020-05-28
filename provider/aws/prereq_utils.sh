@@ -145,7 +145,7 @@ terminate_prereqs() {
   mv -f $starting_dir/provider/aws/.info $starting_dir/provider/aws/.info.old.$(date +%s)
    export U=`whoami`
 #  rm -f ${BIND_MNT_TARGET:?}/${BIND_FILENAME:?}.pem
-  rm -f ${U}${BIND_MNT_TARGET:?}/${BIND_FILENAME:?}.pem
+  rm -f /${U}${BIND_MNT_TARGET:?}/${BIND_FILENAME:?}.pem
   touch $starting_dir/provider/aws/.info
   cd $starting_dir
 }
@@ -327,7 +327,7 @@ replicate_key() {
 #	ls ${KEY_FILE_PATH}
 	export U=`whoami`
 #	cp ${KEY_FILE_PATH}${KEY_FILENAME}.pem ${BIND_MNT_TARGET}${BIND_FILENAME}
-	cp ${KEY_FILE_PATH}${KEY_FILENAME}.pem ${U}${BIND_MNT_TARGET}${BIND_FILENAME}
+	cp ${KEY_FILE_PATH}${KEY_FILENAME}.pem /${U}${BIND_MNT_TARGET}${BIND_FILENAME}
 }
 
 #####################################################

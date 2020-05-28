@@ -52,9 +52,9 @@ fi
 #####################################################
 #       Step 4: copy pem file to bind mount
 #####################################################
-#if [ $setup_prereqs = true ]; then
-#  replicate_key
-#fi
+if [ $setup_prereqs = true ]; then
+  replicate_key
+fi
 
 #####################################################
 #       Step 5: Generate connection strings

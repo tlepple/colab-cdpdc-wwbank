@@ -17,10 +17,18 @@ docker pull centos:7
 # Create a docker volume to persist data
 docker volume create horizon-dc-wwbank-vol1
 
+# create a directory in OS for bind mount:
+cd ~
+mkdir -p ./Documents/aws_stuff/docker_stuff
+
+# create a softlink to this directory
+sudo ln -s /Users/$USER/Documents/aws_stuff/docker_stuff ~/pier121
+
 # Create the docker container
 docker run -it \
   --name horizon_dc_wwbank \
   --mount source=horizon-dc-wwbank-vol1,target=/app \
+  --mount type=bind,source=/Users/$USER/Documents/aws_stuff/docker_stuff,target=~/pier121 \
   centos:7 bash 
 ```
 
@@ -93,12 +101,6 @@ cd /app/colab-cdpdc-wwbank
 # list all containers on host
 docker ps -a
 
-# inspect volume
-docker volume inspect horizon-dc-wwbank-vol1
-
-# list volumes
-docker volume ls
-
 #  start an existing container
 docker start horizon_dc_wwbank
 
@@ -116,6 +118,9 @@ docker container rm horizon_dc_wwbank
 
 # list docker volumes
 docker volume ls
+
+# inspect volume
+docker volume inspect horizon-dc-wwbank-vol1
 
 # remove a docker volume
 docker volume rm horizon-dc-wwbank-vol1

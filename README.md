@@ -52,10 +52,10 @@ cd /app/colab-cdpdc-wwbank
 vi ./provider/aws/demo.properties
 
 OWNER_TAG=<your userid here>
+
+BIND_MNT_SOURCE="/Users/<replace with your username>/Documents/aws_stuff/docker_stuff"
+
 AWS_RGION=<your region here>
-
-
-# I will fix this soon
 AMI_ID=<centos ami for your region>
 
 ```

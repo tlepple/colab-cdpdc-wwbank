@@ -83,6 +83,10 @@ cd /app/colab-cdpdc-wwbank
 * VPC, Security Groups, Route Tables, Subnet, Internet Gateway, PEM File and EC2 Instance.
 
 ```
+export AWS_ACCESS_KEY_ID=<your key>
+export AWS_SECRET_ACCESS_KEY=<your secret key>
+export AWS_DEFAULT_REGION=<aws region you want to run in>
+
 cd /app/colab-cdpdc-wwbank
 . provider/aws/terminate_everything.sh
 

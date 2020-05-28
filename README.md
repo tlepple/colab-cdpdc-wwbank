@@ -14,15 +14,15 @@
 # Pull docker image centos 7
 docker pull centos:7
 
-# Create a docker volume to persist data
-docker volume create horizon-dc-wwbank-vol1
-
 # create a directory in OS for bind mount:
 cd ~
 mkdir -p ./Documents/aws_stuff/docker_stuff
 
 # create a softlink to this directory
 sudo ln -s /Users/$USER/Documents/aws_stuff/docker_stuff ~/pier121
+
+# Create a docker volume to persist data
+docker volume create horizon-dc-wwbank-vol1
 
 # Create the docker container
 docker run -it \

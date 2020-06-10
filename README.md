@@ -79,7 +79,7 @@ cd /app/colab-cdpdc-wwbank
 
 ## Next Steps:
 
-1.  When the above step completes an ssh string will write to the screen and look something like this:
+1.  When the above step completes an ssh string will written to the screen and look something like this:
 ```
  ---------------------------------------------------------------------------------------------------------------------------------------------
           ---------------------------------------------------------------------------------------------------------------------------------------------

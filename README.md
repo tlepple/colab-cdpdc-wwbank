@@ -94,6 +94,8 @@ cd /app/colab-cdpdc-wwbank
 
 2.  Copy this string and open a new terminal window and paste this into your terminal session.  You are now logged into the command line of the newly created host in the cloud provider.
 
+3.  Follow steps in this repo to install the cluster:  [CDP-DC Install](https://github.com/tlepple/horizon-dc)
+
 ---
 ---
 
